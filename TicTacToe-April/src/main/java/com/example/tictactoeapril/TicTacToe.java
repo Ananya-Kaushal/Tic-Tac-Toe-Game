@@ -23,7 +23,7 @@ public class TicTacToe extends Application {
     private boolean playerXTurn=true;
     private int playerXScore=0,playerOScore=0;
     static String name1,name2;
-    public static void end(Stage stage) {
+    public void end(Stage stage) {
         //Title
         TextField textField1 = new TextField();
         TextField textField2 = new TextField();
