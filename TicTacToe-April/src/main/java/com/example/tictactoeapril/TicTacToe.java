@@ -22,8 +22,8 @@ public class TicTacToe extends Application {
     private Label playerXScoreLabel, playerOScoreLabel;
     private boolean playerXTurn=true;
     private int playerXScore=0,playerOScore=0;
-    static String name1="X",name2="O";
-    /*public static void end(Stage stage) {
+    static String name1,name2;
+    public static void end(Stage stage) {
         //Title
         TextField textField1 = new TextField();
         TextField textField2 = new TextField();
@@ -38,6 +38,10 @@ public class TicTacToe extends Application {
              name1 = textField1.getText().toString();
              name2 = textField2.getText().toString();
             stage.hide();
+            Scene scene = new Scene(createContent());
+            stage.setTitle("Tic Tac Toe");
+            stage.setScene(scene);
+            stage.show();
         });
         //Adding labels for nodes
         HBox box = new HBox(5);
@@ -50,10 +54,9 @@ public class TicTacToe extends Application {
         stage.setScene(scene);
         stage.show();
 
-    }*/
+    }
     private BorderPane createContent()
     {
-        //end(new Stage());
         BorderPane root=new BorderPane();
         root.setPadding(new Insets(20));
         //Title
@@ -83,11 +86,11 @@ public class TicTacToe extends Application {
         //Score
         HBox scoreBoard=new HBox(20);
         scoreBoard.setAlignment(Pos.CENTER);
-        //playerXScoreLabel = new Label("Player "+name1+" : 0");
-        playerXScoreLabel = new Label("Player X : 0");
+        playerXScoreLabel = new Label("Player "+name1+" : 0");
+        //playerXScoreLabel = new Label("Player X : 0");
         playerXScoreLabel.setStyle("-fx-font-size : 20pt;-fx-font-weight : bold");
-        //playerOScoreLabel = new Label("Player "+name2+" : 0");
-        playerOScoreLabel = new Label("Player O : 0");
+        playerOScoreLabel = new Label("Player "+name2+" : 0");
+        //playerOScoreLabel = new Label("Player O : 0");
         playerOScoreLabel.setStyle("-fx-font-size : 20pt;-fx-font-weight : bold");
         scoreBoard.getChildren().addAll(playerXScoreLabel,playerOScoreLabel);
 
@@ -222,10 +225,7 @@ public class TicTacToe extends Application {
     }
    @Override
     public void start(Stage stage) throws IOException {
-        Scene scene = new Scene(createContent());
-        stage.setTitle("Tic Tac Toe");
-        stage.setScene(scene);
-        stage.show();
+        end(new Stage());
     }
 
     public static void main(String[] args) {
